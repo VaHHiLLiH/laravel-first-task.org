@@ -20,7 +20,7 @@
         <select name="article-tags[]" multiple required>
             <option disabled>Choose tags</option>
             @foreach($tags as $tag)
-                @if($tagsForThanArticle->has($tag->id))
+                @if(in_array($tag->id, $tagsForThanArticle->pluck('id')->toArray()))
                     <option selected value="{{ $tag->id }}">{{ $tag->name }}</option>
                 @else
                     <option value="{{ $tag->id }}">{{ $tag->name }}</option>
