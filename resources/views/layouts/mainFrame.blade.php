@@ -15,7 +15,7 @@
     <body>
     <header>
         <div class="header-menu">
-            <img src="./image/logo.jpg" alt="logo">
+            <img src="/image/logo.jpg" alt="logo">
             <a href="{{ route('adminPanel') }}" class="header-link">Admin Panel</a>
             <a href="{{ route('userPanel') }}" class="header-link">User Panel</a>
         </div>

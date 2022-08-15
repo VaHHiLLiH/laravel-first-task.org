@@ -12,13 +12,10 @@
                 @method('DELETE')
                 <p>Article Id</p>
                 <p>{{ $article->id }}</p>
-                <br/>
                 <p>Article Name</p>
                 <p>{{ $article->name }}</p>
-                <br/>
                 <p>Article Description</p>
                 <p>{{ $article->description }}</p>
-                <br/>
                 <p>Article Short Description</p>
                 <p>{{ $article->short_description }}</p>
                 <div class="buttons">
@@ -27,5 +24,6 @@
                 </div>
             </form>
         </div>
+        <br/>
     @endforeach
 @endsection

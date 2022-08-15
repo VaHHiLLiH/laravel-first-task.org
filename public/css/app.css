@@ -97,3 +97,46 @@ header{
     width: 20%;
 }
 
+body{
+    margin: 0;
+}
+.post-header{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    font-size: 28px;
+}
+.post-header > div{
+    border: 2px solid seashell;
+    padding: 10px;
+    border-radius: 40px;
+}
+.post-header > div:hover{
+    border: 3px solid blue;
+}
+.admin-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.admin-container > .article-item, .admin-container > .category-item{
+    width: 40%;
+    margin: auto;
+    border: 3px solid aqua;
+    padding: 30px;
+    border-radius: 40px;
+    margin-top: 20px;
+}
+.tag-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.tag-item{
+    width: 20%;
+    margin: 20px;
+    text-align: center;
+}
+
