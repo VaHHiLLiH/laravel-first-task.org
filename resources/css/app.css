@@ -1,0 +1,98 @@
+a{
+    text-decoration: none!important;
+}
+h1{
+    text-align: center;
+}
+header{
+    background-color: aquamarine;
+    padding: 15px;
+    border-radius: 0 0 15px 15px;
+}
+.header-menu{
+    display: flex;
+    justify-content: space-around;
+    font-size: 36px;
+    width: 50%;
+}
+.header-menu > img {
+    width: 150px;
+    height: 100px;
+}
+.categories{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+.category{
+    padding: 60px;
+    border: 3px solid aliceblue;
+    background-color: floralwhite;
+}
+.category p{
+    margin-top: 50%;
+}
+.container{
+    margin-top: 30px;
+}
+.container > h3{
+    text-align: center;
+}
+.tags{
+    display: flex;
+    justify-content: space-around;
+}
+.tags a{
+    color: #0d6efd;
+    text-decoration: underline;
+    padding: 40px 0;
+}
+.article-container{
+    display: flex;
+    justify-content: space-between;
+}
+.article-container > .article{
+    flex: 1;
+}
+.article > a{
+    text-align: center;
+}
+.article{
+    padding: 15px;
+    border-radius: 15px;
+    background-color: floralwhite;
+    max-width: 30%;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: floralwhite;
+    max-width: 30%;
+    min-width: 30%;
+    margin: 10px;
+    min-height: 200px;
+}
+.article-tags-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+.article-description{
+    text-align: center;
+    margin-top: 120px;
+    font-size: 24px;
+}
+.article-tags{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+.articles{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.tag-articles-description{
+    margin-top: 70px;
+}
+.small{
+    width: 20%;
+}

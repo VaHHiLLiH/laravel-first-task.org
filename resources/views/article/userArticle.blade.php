@@ -4,8 +4,10 @@
 @endsection
 @section('content')
     <h1>{{ $article->name }}</h1>
-    <p>{{ $article->description }}</p>
+    <p class="article-description">{{ $article->description }}</p>
+    <div class="article-tags small">
     @foreach($tags as $tag)
         <a href="{{ route('tag', $tag->tag_slug) }}">{{ $tag->name }}</a>
     @endforeach
+    </div>
 @endsection
