@@ -43,14 +43,18 @@ class AdminPanel extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CustomRequest\ArticleRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(ArticleRequest $request)
     {
-        //dd($request->all());
-        $article = Article::create($request->except('_token', /*'article_slug'*/)/*, ['article_slug' => Str::slug($request->get('article_slug'), '-', 'ru')]*/);
-        //dd($article);
+        $article = Article::create([
+            'name' =>   $request->get('name'),
+            'description'   =>  $request->get('description'),
+            'short_description' =>  $request->get('short_description'),
+            'article_slug'  =>  $request->get('name'),
+        ]);
+
         $article->tags()->attach($request->get('article-tags'));
 
         return redirect()->route('articles.index');
@@ -80,12 +84,6 @@ class AdminPanel extends Controller
         $tags = Tag::all();
 
         $tagsForThanArticle = $article->tags;
-        /*foreach ($tags as $tag) {
-            var_dump($tagsForThanArticle->has($tag->id));echo'<br/><br/>';
-            var_dump($tag->id);echo'<br/><br/>';
-        }
-        dd($tagsForThanArticle);*/
-        //почему то не проходит проверка на 5
 
         return view('article/editArticle', compact('article', 'tags', 'tagsForThanArticle'));
     }
@@ -99,12 +97,12 @@ class AdminPanel extends Controller
      */
     public function update(ArticleRequest $request, $id)
     {
+        Article::whereId($id)->update(['name' => $request->get('article_name'), 'description' => $request->get('article_description'), 'short_description' => $request->get('article_short_description'), 'article_slug' => $request->get('article_name')]);
 
-        Article::whereId($id)->update(['name' => $request->get('article_name'), 'description' => $request->get('article_description'), 'short_description' => $request->get('article_short_description'), 'article_slug' => Str::slug($request->get('article_slug', '-', 'ru'))]);
-        //dd($article);
         $article =  Article::findOrFail($id);
+
         $article->tags()->sync($request->get('article-tags'));
-        //dd($request->all());
+
         return redirect()->route('articles.index');
     }
 
@@ -116,7 +114,6 @@ class AdminPanel extends Controller
      */
     public function destroy($id)
     {
-
         $article = Article::find($id);
 
         $article->delete();

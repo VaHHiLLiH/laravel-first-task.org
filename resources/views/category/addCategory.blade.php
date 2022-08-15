@@ -9,9 +9,6 @@
         <label for="category-description">Description</label>
         <input id="category-description" name="description">
         <br/>
-        <label for="category-slug">Slug</label>
-        <input id="category-slug" name="category_slug">
-        <br/>
         <label for="category-articles">Articles</label>
         <select name="category-articles[]" multiple required>
             <option disabled>Choose articles</option>

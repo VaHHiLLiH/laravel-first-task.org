@@ -40,7 +40,11 @@ class AdminCategories extends Controller
      */
     public function store(Request $request)
     {
-        $category = Category::create($request->except('_token'));
+        $category = Category::create([
+            'name'  => $request->get('name'),
+            'description'   => $request->get('description'),
+            'category_slug' => $request->get('name'),
+        ]);
 
         $category->articles()->attach($request->get('category-articles'));
 
@@ -84,7 +88,7 @@ class AdminCategories extends Controller
      */
     public function update(Request $request, $id)
     {
-        Category::whereId($id)->update(['name' => $request->get('category_name'), 'description' => $request->get('category_description')]);
+        Category::whereId($id)->update(['name' => $request->get('category_name'), 'description' => $request->get('category_description'), 'category_slug' => $request->get('category_name')]);
 
         $category = Category::findOrFail($id)->articles()->sync($request->get('category-articles'));
 

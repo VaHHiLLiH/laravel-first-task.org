@@ -37,7 +37,10 @@ class AdminTags extends Controller
      */
     public function store(Request $request)
     {
-        $tag = Tag::create($request->except('_token'));
+        $tag = Tag::create([
+            'name'  => $request->get('name'),
+            'tag_slug'  => $request->get('name'),
+        ]);
 
         return redirect()->route('tags.index');
     }
@@ -75,7 +78,7 @@ class AdminTags extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tags = Tag::whereId($id)->update(['name' => $request->get('tag_name')]);
+        $tags = Tag::whereId($id)->update(['name' => $request->get('tag_name'), 'tag_slug' => $request->get('tag_name')]);
 
         return redirect()->route('tags.index');
     }

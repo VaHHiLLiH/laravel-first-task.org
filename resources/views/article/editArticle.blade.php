@@ -13,9 +13,6 @@
         <label for="article-short-description">Short description</label>
         <input id="article-short-description" name="article_short_description" value="{{ $article->short_description }}">
         <br/>
-        <label for="article-short-description">Slug</label>
-        <input id="article_slug" name="article_slug" value="{{ $article->article_slug }}">
-        <br/>
         <label for="article-tags">Tags</label>
         <select name="article-tags[]" multiple required>
             <option disabled>Choose tags</option>

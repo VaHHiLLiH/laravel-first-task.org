@@ -10,9 +10,6 @@
         <label for="article-description">Description</label>
         <input id="article-description" name="category_description" value="{{ $category->description }}">
         <br/>
-        <label for="category-slug">Slug</label>
-        <input id="category-slug" name="category_slug" value="{{ $category->category_slug }}">
-        <br/>
         <select name="category-articles[]" multiple required>
             <option disabled>Choose articles</option>
             @foreach($articles as $article)

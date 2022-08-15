@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Article extends Model
 {
@@ -21,5 +22,10 @@ class Article extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function setArticleSlugAttribute($value)
+    {
+        return $this->attributes['article_slug'] = Str::slug($value);
     }
 }
