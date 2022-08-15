@@ -88,9 +88,11 @@ class AdminCategories extends Controller
      */
     public function update(Request $request, $id)
     {
-        Category::whereId($id)->update(['name' => $request->get('category_name'), 'description' => $request->get('category_description'), 'category_slug' => $request->get('category_name')]);
+        $category = Category::findOrFail($id);
 
-        $category = Category::findOrFail($id)->articles()->sync($request->get('category-articles'));
+        $category->update(['name' => $request->get('category_name'), 'description' => $request->get('category_description'), 'category_slug' => $request->get('category_name')]);
+
+        $category->articles()->sync($request->get('category-articles'));
 
         return redirect()->route('categories.index');
     }

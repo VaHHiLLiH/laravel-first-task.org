@@ -78,7 +78,9 @@ class AdminTags extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tags = Tag::whereId($id)->update(['name' => $request->get('tag_name'), 'tag_slug' => $request->get('tag_name')]);
+        $tag = Tag::findOrFail($id);
+
+        $tag->update(['name' => $request->get('tag_name'), 'tag_slug' => $request->get('tag_name')]);
 
         return redirect()->route('tags.index');
     }

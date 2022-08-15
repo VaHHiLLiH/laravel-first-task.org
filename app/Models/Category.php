@@ -23,4 +23,6 @@ class Category extends Model
     {
         return $this->attributes['category_slug'] = Str::slug($value);
     }
+
+
 }

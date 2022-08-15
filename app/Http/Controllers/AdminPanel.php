@@ -54,7 +54,6 @@ class AdminPanel extends Controller
             'short_description' =>  $request->get('short_description'),
             'article_slug'  =>  $request->get('name'),
         ]);
-
         $article->tags()->attach($request->get('article-tags'));
 
         return redirect()->route('articles.index');
@@ -97,9 +96,9 @@ class AdminPanel extends Controller
      */
     public function update(ArticleRequest $request, $id)
     {
-        Article::whereId($id)->update(['name' => $request->get('article_name'), 'description' => $request->get('article_description'), 'short_description' => $request->get('article_short_description'), 'article_slug' => $request->get('article_name')]);
-
         $article =  Article::findOrFail($id);
+
+        $article->update(['name' => $request->get('article_name'), 'description' => $request->get('article_description'), 'short_description' => $request->get('article_short_description'), 'article_slug' => $request->get('article_name')]);
 
         $article->tags()->sync($request->get('article-tags'));
 

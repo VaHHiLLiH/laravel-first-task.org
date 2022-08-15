@@ -21,6 +21,10 @@ Route::get('/', [UserPanel::class, 'index'])->name('userPanel');
 
 Route::get('/category/{category:category_slug}', [UserPanel::class, 'showCategory'])->name('category');
 
+Route::get('/article/{article:article_slug}', [UserPanel::class, 'showArticle'])->name('article');
+
+Route::get('/tag/{tag:tag_slug}', [UserPanel::class, 'showTag'])->name('tag');
+
 Route::prefix('admin/')->group(function () {
     Route::get('/', [AdminPanel::class, 'mainPanel'])->name('adminPanel')->middleware('access.to.admin');
 

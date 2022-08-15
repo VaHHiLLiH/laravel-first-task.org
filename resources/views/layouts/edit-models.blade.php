@@ -9,7 +9,7 @@
 <div class="header-menu">
     <img src="#" alt="logo">
     <a href="{{ route('adminPanel') }}" class="header-link">Admin Panel</a>
-    <a href="{{ route('articles.index') }}" class="header-link">User Panel</a>
+    <a href="{{ route('userPanel') }}" class="header-link">User Panel</a>
     <a href="@yield('special-route')" class="header-link">@yield('special-text')</a>
 </div>
 <div class="container">
